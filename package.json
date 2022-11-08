@@ -1,17 +1,24 @@
 {
-  "name": "escravo_do_jao",
-  "version": "1.0.0",
-  "description": "Testing a lot of things here.",
+  "name": "ru_bot",
+  "version": "1.0.1",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-armenio/RU-Twitter-Bot.git"
   },
   "author": "https://github.com/j-armenio",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/j-armenio/RU-Twitter-Bot/issues"
+  },
+  "homepage": "https://github.com/j-armenio/RU-Twitter-Bot#readme",
   "dependencies": {
+    "cron": "^2.1.0",
     "dotenv": "^16.0.3",
-    "node-schedule": "^2.1.0",
     "twit": "^2.2.11"
   }
 }

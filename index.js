@@ -1,37 +1,15 @@
-require("dotenv").config();
-const twit = require('./twit');
-let schedule = require('node-schedule');
+const CronJob = require('cron').CronJob;
+const famousQuotes = require('./famousQuotes');
+const { postTweet } = require('./bot');
 
-function pegaCardapio()
-{
-    setTimeout(10);
+function getQuotes(){
+    return famousQuotes.QUOTES[Math.floor[Math.random()*famousQuotes.QUOTES.lenght]];
 }
 
-function postTweet()
-{
-    return new Promise((resolve, reject) => {
-        let params = {
-            id,
-        }
-        twit.post("statuses/:id", params, (err, data) => {
-            if (err){
-                return reject(err);
-            }
-            return resolve(data);
-        });
-    });
-}
-
-async function main()
-{
-    try {
-        const data = await pegaCardapio();
-        
-    } catch(e){
-        console.error(e);
-    }
-}
-
-console.log('Começando o bot...');
-
-setInterval(main, 10000);
+new CronJob(
+    '* * * * *',
+    function(){
+        postTweet(getQuotes());
+    },
+    null, true, 'Asia/Kolkata'
+);
