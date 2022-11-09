@@ -1,16 +1,17 @@
 {
-  "name": "ru_bot",
-  "version": "1.0.1",
-  "description": "",
+  "name": "ru-twitter-bot",
+  "version": "1.0.2",
+  "description": "Bot no twitter que todo dia de manhã posta o cardárpio do RU.",
   "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/j-armenio/RU-Twitter-Bot.git"
   },
-  "author": "https://github.com/j-armenio",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/j-armenio/RU-Twitter-Bot/issues"
@@ -19,6 +20,7 @@
   "dependencies": {
     "cron": "^2.1.0",
     "dotenv": "^16.0.3",
+    "puppeteer": "^19.2.2",
     "twit": "^2.2.11"
   }
 }
