@@ -6,16 +6,20 @@ async function getMenu(){
         headless: true
     });
     const page = await browser.newPage();
-    await page.goto('https://pra.ufpr.br/ru/ru-centro-politecnico/');
+    await page.goto('https://pra.ufpr.br/ru/ru-centro-politecnico/', {waitUntil: 'domcontentloaded'});
+    console.log("Content loaded...");
 
-    // pega o "viewport" da página
-    const breakfastMenu = await page.evaluate(() => {
+    // Pega o "viewport" da página
+    const fullMenu = await page.evaluate(() => {
         return {
-            breakfastDay: document.querySelectorAll("tbody > tr:nth-child(2)").innerHTML,
-        }
-    })
-    console.log(breakfastMenu);
+            day: document.querySelector('#conteudo div:nth-child(3) p strong').innerText,
+            breakfastFood: document.querySelector('tbody tr:nth-child(2)').innerText,
+            lunchFood: document.querySelector('tbody tr:nth-child(4)').innerText,
+            dinnerFood: document.querySelector('tbody tr:nth-child(6)').innerText
+        };
+    });
 
+    // console.log(fullMenu.dinnerFood);
     await browser.close();
 }
 
