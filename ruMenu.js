@@ -21,6 +21,16 @@ async function getMenu(){
 
     // console.log(fullMenu.dinnerFood);
     await browser.close();
+    // console.log(fullMenu);
+    
+    const menu = {
+        breakfast:fullMenu.day + "\nCafé da Manhã:\n" + fullMenu.breakfastFood,
+        lunch:fullMenu.day + "\nAlmoço:\n" + fullMenu.lunchFood,
+        dinner:fullMenu.day + "\nJantar:\n" + fullMenu.dinnerFood
+    };
+
+    console.log(menu.breakfast);
+    return menu.breakfast;
 }
 
 getMenu();
