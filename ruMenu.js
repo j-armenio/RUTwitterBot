@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
 
-async function getMenu(){
+async function getMenu() {
     console.log("Opening the browser...");
     const browser = await puppeteer.launch({
         headless: true
@@ -19,22 +19,14 @@ async function getMenu(){
         };
     });
 
-    // console.log(fullMenu.dinnerFood);
     await browser.close();
-    // console.log(fullMenu);
     
-    const menu = {
-        breakfast:fullMenu.day + "\nCafé da Manhã:\n" + fullMenu.breakfastFood,
-        lunch:fullMenu.day + "\nAlmoço:\n" + fullMenu.lunchFood,
-        dinner:fullMenu.day + "\nJantar:\n" + fullMenu.dinnerFood
+    return {
+        breakfast: fullMenu.day + "\nCafé da Manhã:\n" + fullMenu.breakfastFood,
+        lunch:     fullMenu.day + "\nAlmoço:\n" + fullMenu.lunchFood,
+        dinner:    fullMenu.day + "\nJantar:\n" + fullMenu.dinnerFood
     };
-
-    console.log(menu.breakfast);
-    return menu.breakfast;
-}
-
-getMenu();
-
-module.exports = {
-    getMenu
 };
+
+
+module.exports = {  getMenu  };
