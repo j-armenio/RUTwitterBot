@@ -28,5 +28,9 @@ async function getMenu() {
     };
 };
 
+const menu = await getMenu();
+if (menu) {
+    console.log(menu.breakfast);
+}
 
 module.exports = {  getMenu  };
