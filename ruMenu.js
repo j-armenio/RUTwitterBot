@@ -21,16 +21,15 @@ async function getMenu() {
 
     await browser.close();
     
-    return {
+    const menu = {
         breakfast: fullMenu.day + "\nCafé da Manhã:\n" + fullMenu.breakfastFood,
         lunch:     fullMenu.day + "\nAlmoço:\n" + fullMenu.lunchFood,
         dinner:    fullMenu.day + "\nJantar:\n" + fullMenu.dinnerFood
     };
+
+    console.log(menu.breakfast);
 };
 
-const menu = await getMenu();
-if (menu) {
-    console.log(menu.breakfast);
-}
+getMenu();
 
 module.exports = {  getMenu  };
