@@ -9,7 +9,6 @@ const client = new Twit({
 const CronJob = require('cron').CronJob;
 const { getMenu } = require('./ruMenu');
 
-const menu = getMenu();
 
 // Função para postar o tweet
 const postTweet = (message) => {
@@ -31,15 +30,18 @@ const postTweet = (message) => {
     });
 };
 
-// Função que define a hora e o dia de postar o tweet
-new CronJob(
-    '* * * * *',
-    function(){
-        postTweet(menu.breakfast);
-        postTweet(menu.lunch);
-        postTweet(menu.dinner);
-    },
-    null,
-    true,
-    'America/Sao_Paulo'
-); 
+(async () => {
+    let menu = await getMenu();
+    // Função que define a hora e o dia de postar o tweet
+    new CronJob(
+        '0 7 * * mon, tue, wed, thu, fri, sat',
+        function(){
+            postTweet(menu.breakfast);
+            postTweet(menu.lunch);
+            postTweet(menu.dinner);
+        },
+        null,
+        true,
+        'America/Sao_Paulo'
+    ); 
+ })();
