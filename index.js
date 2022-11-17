@@ -34,11 +34,12 @@ const postTweet = (message) => {
     let menu = await getMenu();
     // Função que define a hora e o dia de postar o tweet
     new CronJob(
-        '0 7 * * mon, tue, wed, thu, fri, sat',
+         '0 7 * * mon, tue, wed, thu, fri, sat',
+        // '* * * * *', // Para testes troque os tempos do Cronjob
         function(){
-            postTweet(menu.breakfast);
-            postTweet(menu.lunch);
             postTweet(menu.dinner);
+            postTweet(menu.lunch);
+            postTweet(menu.breakfast);
         },
         null,
         true,
