@@ -1,2 +1,2 @@
-# RU-Twitter-Bot
-Bot que posta toda manhã no twitter o cardápio do RU do politécnico feito em Javascript.
+# RUTwitterBot
+Bot feito para postar o cardápio do RU do centro politécnico toda manhã.
